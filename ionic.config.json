@@ -1,0 +1,7 @@
+{
+  "name": "Viewing-Party",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
