@@ -1,6 +1,6 @@
 import React from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonRow } from '@ionic/react';
+import ToWatchList from '../components/ToWatchList';
 import './MyPage.css';
 
 const MyPage: React.FC = () => {
@@ -17,7 +17,9 @@ const MyPage: React.FC = () => {
             <IonTitle size="large">My Page</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer name="My Page" />
+        <IonRow>
+          <ToWatchList></ToWatchList>
+        </IonRow>
       </IonContent>
     </IonPage>
   );
