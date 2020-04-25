@@ -56,11 +56,41 @@ module.exports.findClubComments = (req, res) => {
 // **********************************************
 // **********************************************
 
-// Create and Save a new club
-exports.create = (req, res) => {
-  
-};
+module.exports.create = (req, res) => {
+  // Validate request
+/*  if (!req.body.title) {
+    res.status(400).send({
+      message: "Content can not be empty!"
+    });
+    return;
+  }
+*/
 
+  console.log ('Club Comment. Create'); 
+
+  // Create a club comment
+  const clubComment = {
+    comment: req.body.comment,
+    fk_club_id: req.body.fk_club_id,
+    fk_member_id: req.body.fk_member_id
+
+  };
+
+  console.log ('Club name. ' + clubComment.comment); 
+
+  // Save club in the database
+  Club_Comment.create(clubComment)
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Error. Club comment create."
+      });
+    });
+
+};
 // **********************************************
 // **********************************************
 

@@ -55,9 +55,38 @@ module.exports.findMemberMovieComments = (req, res) => {
 // **********************************************
 // **********************************************
 
-// Create and Save a new club
-exports.create = (req, res) => {
-  
+module.exports.create = (req, res) => {
+  // Validate request
+/*  if (!req.body.title) {
+    res.status(400).send({
+      message: "Content can not be empty!"
+    });
+    return;
+  }
+*/
+
+  console.log ('Club/Member Comment Movie. Create'); 
+
+  // Create a club
+  const cmmc = {
+    comment: req.body.comment,
+    fk_club_id: req.body.fk_club_id,
+    fk_member_id: req.body.fk_member_id,
+    fk_movie_id: req.body.fk_movie_id};
+
+  console.log ('Club member movie. ' + cmmc.tmdb_id); 
+
+  // Save club in the database
+  Club_Member_Movie_Comment.create(cmmc)
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Error. Club/member comment create."
+      });
+    });
 };
 
 // **********************************************
