@@ -1,6 +1,6 @@
 import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import PlaceholderContainer from '../components/PlaceholderContainer';
 import './Search.css';
 
 const Search: React.FC = () => {
@@ -17,7 +17,7 @@ const Search: React.FC = () => {
             <IonTitle size="large">Search Movies or Shows</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer name="Search Movies or Shows" />
+        <PlaceholderContainer name="Search Movies or Shows" />
       </IonContent>
     </IonPage>
   );
