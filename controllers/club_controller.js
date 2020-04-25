@@ -39,13 +39,41 @@ module.exports.findOne = (req, res) => {
 
 
 // **********************************************
+// create a new club
 // **********************************************
 
-// Create and Save a new club
 module.exports.create = (req, res) => {
-  
-};
+  // Validate request
+/*  if (!req.body.title) {
+    res.status(400).send({
+      message: "Content can not be empty!"
+    });
+    return;
+  }
+*/
 
+  console.log ('Club. Create'); 
+
+  // Create a club
+  const club = {
+    club_name: req.body.club_name
+  };
+
+  console.log ('Club name. ' + club.club_name); 
+
+  // Save club in the database
+  Club.create(club)
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Error. Club create."
+      });
+    });
+
+};
 // **********************************************
 // **********************************************
 

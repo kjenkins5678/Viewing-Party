@@ -8,7 +8,7 @@ const Op = db.Sequelize.Op;
 // **********************************************
 // **********************************************
 
-// Retrieve all clubs from the database.
+// Retrieve all club/member maps
 module.exports.findAll = (req, res) => {
   Club_Member_Map.findAll({})
     .then(data => {
@@ -22,28 +22,69 @@ module.exports.findAll = (req, res) => {
     });
 };
 
-// Find a single member with clubs
-module.exports.findOneMember = (req, res) => {
+// Find all members in a club  
+module.exports.findClubMembers = (req, res) => {
+  console.log('club member map findClubMembers');
+  const id = req.params.id;  
+  var query = `select cm.* from club_member cm, club_member_map cmm `
+    + `where cm.id = cmm.fk_member_id and cmm.fk_club_id = ${id}`; 
+  db.mySqlConnection.query(query, 
+    function(err, results, fields) {
+      console.log(results); // results contains rows returned by server
+      res.send(results); 
+    } 
+  );
+};
+
+// Find all clubs a member is in 
+module.exports.findMemberClubs = (req, res) => {
   console.log('club member map findByMember');
   const id = req.params.id;  
-  Club_Member_Map.findAll({where: {fk_member_id: id},include: [db.Club]})
+  var query = `select c.id as club_id, c.club_name, cmm.fk_member_id as member_id, cmm.linked_at from club c, club_member_map cmm `
+    + `where cmm.fk_club_id = c.id and cmm.fk_member_id = ${id}`; 
+  db.mySqlConnection.query(query, 
+    function(err, results, fields) {
+      console.log(results); // results contains rows returned by server
+      res.send(results); 
+    } 
+  );
+};
+
+// **********************************************
+// **********************************************
+
+module.exports.create = (req, res) => {
+  // Validate request
+/*  if (!req.body.title) {
+    res.status(400).send({
+      message: "Content can not be empty!"
+    });
+    return;
+  }
+*/
+
+  console.log ('Club/Member Map. Create'); 
+
+  // Create a club
+  const cmm = {
+    fk_member_id: req.body.fk_member_id,
+    fk_club_id: req.body.fk_club_id,
+    linked_at: new Date()
+  };
+
+  console.log ('Club name. ' + cmm.fk_member_id); 
+
+  // Save club in the database
+  Club_Member_Map.create(cmm)
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving members by club"
+          err.message || "Error. Club/member map create."
+      });
     });
-  });
-};
-
-// **********************************************
-// **********************************************
-
-// Create and Save a new club
-exports.create = (req, res) => {
-  
 };
 
 // **********************************************

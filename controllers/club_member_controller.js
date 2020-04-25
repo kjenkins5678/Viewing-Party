@@ -41,11 +41,41 @@ module.exports.findOne = (req, res) => {
 // **********************************************
 // **********************************************
 
-// Create and Save a new club
-exports.create = (req, res) => {
-  
-};
+module.exports.create = (req, res) => {
+  // Validate request
+/*  if (!req.body.title) {
+    res.status(400).send({
+      message: "Content can not be empty!"
+    });
+    return;
+  }
+*/
 
+  console.log ('Member. Create'); 
+
+  // Create a member
+  const member = {
+    first_name: req.body.first_name,
+    last_name: req.body.last_name, 
+    email: req.body.email,
+    user_id: req.body.user_id
+  };
+
+  console.log ('Member. ' + member.first_name); 
+
+  // Save club in the database
+  Club_Member.create(member)
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Error. Member create."
+      });
+    });
+
+};
 // **********************************************
 // **********************************************
 
