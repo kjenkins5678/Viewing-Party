@@ -14,6 +14,7 @@ import { ellipse, square, triangle } from 'ionicons/icons';
 import MyClubs from './pages/MyClubs';
 import Search from './pages/Search';
 import MyPage from './pages/MyPage';
+import Home from './pages/Home';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -39,10 +40,11 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
+          <Route path="/home" component={Home} exact={true} />
           <Route path="/myclubs" component={MyClubs} exact={true} />
           <Route path="/search" component={Search} exact={true} />
           <Route path="/mypage" component={MyPage} />
-          <Route path="/" render={() => <Redirect to="/tab1" />} exact={true} />
+          <Route path="/" render={() => <Redirect to="/home" />} exact={true} />
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           <IonTabButton tab="My Page" href="/mypage">
