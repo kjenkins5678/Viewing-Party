@@ -1,22 +1,22 @@
 import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import PlaceholderContainer from '../components/PlaceholderContainer';
 
 const Home: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Home</IonTitle>
+          <IonTitle>Viewing Party</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Home</IonTitle>
+            <IonTitle size="large">Viewing Party</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer name="Home" />
+        <PlaceholderContainer name="Viewing Party" />
       </IonContent>
     </IonPage>
   );
