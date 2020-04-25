@@ -10,7 +10,7 @@ import {
   IonTabs
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
+import { search, personCircle, people, home } from 'ionicons/icons';
 import MyClubs from './pages/MyClubs';
 import Search from './pages/Search';
 import MyPage from './pages/MyPage';
@@ -47,16 +47,20 @@ const App: React.FC = () => (
           <Route path="/" render={() => <Redirect to="/home" />} exact={true} />
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
+        <IonTabButton tab="Home" href="/home">
+              <IonIcon icon={home} />
+              <IonLabel>Home</IonLabel>
+            </IonTabButton>
           <IonTabButton tab="My Page" href="/mypage">
-              <IonIcon icon={square} />
+              <IonIcon icon={personCircle} />
               <IonLabel>My Page</IonLabel>
             </IonTabButton>
           <IonTabButton tab="My Clubs" href="/myclubs">
-            <IonIcon icon={triangle} />
+            <IonIcon icon={people} />
             <IonLabel>My Clubs</IonLabel>
           </IonTabButton>
           <IonTabButton tab="Search Movies or Shows" href="/search">
-            <IonIcon icon={ellipse} />
+            <IonIcon icon={search} />
             <IonLabel>Search Movies or Shows</IonLabel>
           </IonTabButton>
         </IonTabBar>
