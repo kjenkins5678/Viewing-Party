@@ -8,8 +8,8 @@ const Op = db.Sequelize.Op;
 // **********************************************
 // **********************************************
 
-// Retrieve all clubs from the database.
-exports.findAll = (req, res) => {
+// Retrieve all club members from the database.
+module.exports.findAll = (req, res) => {
   console.log('club member findAll');
   Club_Member.findAll({})
     .then(data => {
@@ -18,19 +18,24 @@ exports.findAll = (req, res) => {
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving club members"
+          err.message || "Some error occurred while retrieving all club members"
     });
   });
 };
 
-// Find all published clubs
-exports.findAllPublished = (req, res) => {
-  
-};
-
-// Find a single club with an id
-exports.findOne = (req, res) => {
-  
+module.exports.findOne = (req, res) => {
+  console.log('club member findByID');
+  const id = req.params.id;  
+  Club_Member.findByPk(id)
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving members by club"
+    });
+  });
 };
 
 // **********************************************

@@ -22,14 +22,34 @@ exports.findAll = (req, res) => {
     });
 };
 
-// Find all published clubs
-exports.findAllPublished = (req, res) => {
-  
+module.exports.findOne = (req, res) => {
+  console.log('club member movie comment findByID');
+  const id = req.params.id;  
+  Club_Member_Movie_Comment.findByPk(id)
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving movie by ID"
+    });
+  });
 };
 
-// Find a single club with an id
-exports.findOne = (req, res) => {
-  
+// Retrieve a club and its comments
+module.exports.findComments = (req, res) => {
+  console.log("club_member_movie_comment.findComments"); 
+  const id = req.params.id; 
+  Club_Member_Movie_Comment.findAll({where: {fk_movie_id:id}})
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving clubs"
+      });
+  });
 };
 
 // **********************************************

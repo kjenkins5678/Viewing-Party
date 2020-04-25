@@ -134,4 +134,50 @@ values (
   CURRENT_TIMESTAMP()
 );
 
+-- club member movie 
+
+insert into club_member_movie 
+   (movie_status, title, synopsis, tmdb_id, poster_url, reviews_url, createdAt, updatedAt, fk_club_id, fk_member_id)
+values
+   ('OPEN', 'Titanic', 'Boat misses its ETA', 1, 'http://posterurl.com', 'http://reviewsurl.com', 
+   CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), 
+   (select id from club where club_name = 'Brians Club'), 
+   (select id from club_member where first_name = 'Brian'));
+   
+insert into club_member_movie 
+   (movie_status, title, synopsis, tmdb_id, poster_url, reviews_url, createdAt, updatedAt, fk_club_id, fk_member_id)
+values
+   ('OPEN', 'Titanic', 'Boat misses its ETA', 1, 'http://posterurl.com', 'http://reviewsurl.com', 
+   CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), 
+   (select id from club where club_name = 'Brians Club'), 
+   (select id from club_member where first_name = 'Raquel'));
+   
+insert into club_member_movie 
+   (movie_status, title, synopsis, tmdb_id, poster_url, reviews_url, createdAt, updatedAt, fk_club_id, fk_member_id)
+values
+   ('OPEN', 'Caddyshack', 'Golf, gophers', 1, 'http://posterurl.com', 'http://reviewsurl.com', 
+   CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), 
+   (select id from club where club_name = 'Brians Club'), 
+   (select id from club_member where first_name = 'Brian'));
+   
+-- club member movie comment 
+
+   
+-- club comment 
+
+insert into club_comment (comment, createdAt, updatedAt, fk_club_id, fk_member_id)
+values ('Club 1 comment', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), 1, 1); 
+
+insert into club_comment (comment, createdAt, updatedAt, fk_club_id, fk_member_id)
+values ('Club 1 comment. Can we retrieve this?', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), 1, 2); 
+
+insert into club_comment (comment, createdAt, updatedAt, fk_club_id, fk_member_id)
+values ('Club 1 comment. Can we retrieve this?', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), 1, 3); 
+
+insert into club_comment (comment, createdAt, updatedAt, fk_club_id, fk_member_id)
+values ('Club 2 comment', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), 2, 1); 
+
+insert into club_comment (comment, createdAt, updatedAt, fk_club_id, fk_member_id)
+values ('More to say about club 2', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), 2, 4); 
+
 

@@ -9,7 +9,7 @@ const Op = db.Sequelize.Op;
 // **********************************************
 
 // Retrieve all clubs from the database.
-exports.findAll = (req, res) => {
+module.exports.findAll = (req, res) => {
   Club_Member_Map.findAll({})
     .then(data => {
       res.send(data);
@@ -22,14 +22,20 @@ exports.findAll = (req, res) => {
     });
 };
 
-// Find all published clubs
-exports.findAllPublished = (req, res) => {
-  
-};
-
-// Find a single club with an id
-exports.findOne = (req, res) => {
-  
+// Find a single member with clubs
+module.exports.findOneMember = (req, res) => {
+  console.log('club member map findByMember');
+  const id = req.params.id;  
+  Club_Member_Map.findAll({where: {fk_member_id: id},include: [db.Club]})
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving members by club"
+    });
+  });
 };
 
 // **********************************************

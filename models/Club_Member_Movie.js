@@ -11,6 +11,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(16),
       allowNull: false
     },
+    title: {
+      type: DataTypes.STRING(1024),
+      allowNull: false
+    },
     tmdb_id: {
       type: DataTypes.INTEGER,
       allowNull: false

@@ -42,6 +42,7 @@ CREATE TABLE `club_member_map` (
 CREATE TABLE club_member_movie (
   id                 int NOT NULL AUTO_INCREMENT,
   movie_status       varchar (16) NOT NULL,  
+  title              varchar (1024), 
   tmdb_id            int NOT NULL, 
   synopsis           varchar (1024), 
   poster_url         varchar (128),
@@ -56,7 +57,7 @@ CREATE TABLE club_member_movie (
   CONSTRAINT `fk_cmmo_member` FOREIGN KEY (`fk_member_id`) REFERENCES `club_member` (`id`), 
   PRIMARY KEY (id)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-   
+
 CREATE TABLE club_member_movie_comment (
   id                 int NOT NULL AUTO_INCREMENT,
   comment            varchar (1024),

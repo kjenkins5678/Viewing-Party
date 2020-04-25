@@ -28,7 +28,21 @@ module.exports = function(sequelize, DataTypes) {
 
   Club.associate = function(models) {
 
-    Club.hasMany(models.Club_Member_Map, {
+/*    Club.hasMany(models.Club_Member_Map, {
+      onDelete: "cascade"
+    });
+*/
+/*
+Product.associate = function(models) {
+  Product.belongsToMany(models.Order, {
+    through: 'ProductOrders',
+    as: 'orders',
+    foreignKey: 'productId',
+    otherKey: 'orderId'
+  });
+};
+*/
+    Club.hasMany(models.Club_Comment, {
       onDelete: "cascade"
     });
 
@@ -37,10 +51,6 @@ module.exports = function(sequelize, DataTypes) {
     });
 
     Club.hasMany(models.Club_Member_Movie_Comment, {
-      onDelete: "cascade"
-    });
-
-    Club.hasMany(models.Club_Comment, {
       onDelete: "cascade"
     });
 

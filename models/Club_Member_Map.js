@@ -41,17 +41,18 @@ module.exports = function(sequelize, DataTypes) {
 
   Club_Member_Map.associate = function(models) {
 
-    Club_Member_Map.belongsTo(models.Club, {
+/*    Club_Member_Map.hasMany(models.Club, {
       foreignKey: {
         allowNull: false
       }
     });
 
-    Club_Member_Map.belongsTo(models.Club_Member, {
+    Club_Member_Map.hasMany(models.Club_Member, {
       foreignKey: {
         allowNull: false
       }
     });
+*/
   }
 
   return Club_Member_Map; 
