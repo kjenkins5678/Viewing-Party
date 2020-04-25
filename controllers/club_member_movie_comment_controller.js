@@ -38,7 +38,7 @@ module.exports.findOne = (req, res) => {
 };
 
 // Retrieve a club and its comments
-module.exports.findComments = (req, res) => {
+module.exports.findMemberMovieComments = (req, res) => {
   console.log("club_member_movie_comment.findComments"); 
   const id = req.params.id; 
   Club_Member_Movie_Comment.findAll({where: {fk_movie_id:id}})

@@ -25,5 +25,6 @@ db.Club_Member_Movie = require("./Club_Member_Movie.js")(sequelize, Sequelize);
 db.Club_Member_Movie_Comment = require("./Club_Member_Movie_Comment.js")(sequelize, Sequelize);
 db.Club_Member_Map = require("./Club_Member_Map.js")(sequelize, Sequelize);
 db.Club_Comment = require("./Club_Comment.js")(sequelize, Sequelize);
+db.mySqlConnection = require ("./mySqlConnection.js");
 
 module.exports = db;

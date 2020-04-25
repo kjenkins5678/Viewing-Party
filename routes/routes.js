@@ -34,7 +34,9 @@ module.exports = app => {
 
   app.get("/api/club_member_map", club_member_map.findAll);
 
-  app.get("/api/club_member_map/:id", club_member_map.findOneMember);
+  app.get("/api/member_clubs/:id", club_member_map.findMemberClubs);
+
+  app.get("/api/club_members/:id", club_member_map.findClubMembers);
 
   // ********************************************
   // clubs member movies  
@@ -44,7 +46,9 @@ module.exports = app => {
 
   app.get("/api/movie/:id", club_member_movie.findOne);
 
-  app.get("/api/movie_by_member/:id", club_member_movie.findAllByMember);
+  app.get("/api/member_movies/:id", club_member_movie.findMemberMovies);
+
+  app.get("/api/movie_members/:id", club_member_movie.findMovieMembers);
 
   // ********************************************
   // club member movie comments
@@ -54,16 +58,16 @@ module.exports = app => {
 
   app.get("/api/movie_comment/:id", club_member_movie_comment.findOne);
 
-  app.get("/api/movie_comment_by_movie", club_member_movie_comment.findComments);
+  app.get("/api/member_movie_comments", club_member_movie_comment.findMemberMovieComments);
 
   // ********************************************
   // club comments 
   // ********************************************
 
-  app.get("/api/club_comment", club_comment.findAll);
+  app.get("/api/cc", club_comment.findAll);
 
-  app.get("/api/club_comment/:id", club_comment.findOne);
+  app.get("/api/cc/:id", club_comment.findOne);
 
-  app.get("/api/club_comment_by_club/:id", club_comment.findComments);
+  app.get("/api/club_cc/:id", club_comment.findClubComments);
 
 }

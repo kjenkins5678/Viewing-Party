@@ -22,8 +22,23 @@ exports.findAll = (req, res) => {
     });
 };
 
-// Retrieve all clubs from the database.
-exports.findAllByMember = (req, res) => {
+module.exports.findOne = (req, res) => {
+  console.log('club member movie findByID');
+  const id = req.params.id;  
+  Club_Member_Movie.findByPk(id)
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving movie by ID"
+    });
+  });
+};
+
+// Retrieve all movies linked to a member
+exports.findMemberMovies = (req, res) => {
   console.log('movie findByMember');
   const id = req.params.id;  
   Club_Member_Movie.findAll({where:{fk_member_id:id}})
@@ -38,19 +53,20 @@ exports.findAllByMember = (req, res) => {
     });
 };
 
-module.exports.findOne = (req, res) => {
-  console.log('club member movie findByID');
+// Retrieve all members linked to a movie 
+exports.findMovieMembers = (req, res) => {
+  console.log('movie findMovieMembers');
   const id = req.params.id;  
-  Club_Member_Movie.findByPk(id)
+  Club_Member_Movie.findAll({where:{tmdb_id:id}})
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving movie by ID"
+          err.message || "Some error occurred while retrieving club members"
+      });
     });
-  });
 };
 
 // **********************************************
