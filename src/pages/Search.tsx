@@ -23,10 +23,11 @@ const Search: React.FC = () => {
       </IonHeader>
 
       <IonContent class="outer-content">
-      <Route path="./../" component={Home} exact={true} />
-      <Route path="/:movieId" component={Movie}  exact={true} />
+      <Switch>
+      <Route path="/" component={Home}  />
+      <Route path="/:movieId" component={Movie}  />
       <Route component={NotFound} />
-
+      </Switch>
       </IonContent>
     </IonPage>
   );

@@ -14,23 +14,6 @@
       "purpose": "maskable"
     }
   ],
-  "images": [
-    {
-      "src": "assets/images/avengers_background.jpg"
-    },
-    {
-      "src": "assets/images/avengers.jpg"
-    },
-    {
-      "src": "assets/images/no_image.jpg"
-    },
-    {
-      "src": "assets/images/reactMovie.jpg"
-    },
-    {
-      "src": "assets/images/tmdb_logo.jpg"
-    }   
-  ],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#ffffff",

@@ -16,7 +16,7 @@ const MovieInfo = ({ movie, directors }) => (
     <div className="rmdb-movieinfo-content">
       <div className="rmdb-movieinfo-thumb">
         <MovieThumb
-          image={movie.poster_path ? `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}` : '../../../../public/images/no_image.jpg'}
+          image={movie.poster_path ? `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}` : '../../../images/no_image.jpg'}
           clickable={false}
         />
       </div>
