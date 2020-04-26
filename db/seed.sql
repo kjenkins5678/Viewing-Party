@@ -17,29 +17,29 @@ values ('Brians Club', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
 
 -- member 
 
-insert into club_member (first_name, last_name, email, user_id, createdAt, updatedAt) 
-values ('Brian', 'McLaughlin', 'bcm@email.com', 'bmclaugh', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()); 
+insert into club_member (first_name, last_name, email, user_id, `password`, createdAt, updatedAt) 
+values ('Brian', 'McLaughlin', 'bcm@email.com', 'bmclaugh', 'password1', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()); 
 
-insert into club_member (first_name, last_name, email, user_id, createdAt, updatedAt) 
-values ('Kristin', 'Jenkins', 'kj@email.com', 'kjenkins', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()); 
+insert into club_member (first_name, last_name, email, user_id, `password`, createdAt, updatedAt) 
+values ('Kristin', 'Jenkins', 'kj@email.com', 'kjenkins', 'password2', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()); 
 
-insert into club_member (first_name, last_name, email, user_id, createdAt, updatedAt) 
-values ('Michael', 'Bradford', 'mb@email.com', 'mbradford', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()); 
+insert into club_member (first_name, last_name, email, user_id, `password`, createdAt, updatedAt) 
+values ('Michael', 'Bradford', 'mb@email.com', 'mbradford', 'password3', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()); 
 
-insert into club_member (first_name, last_name, email, user_id, createdAt, updatedAt) 
-values ('Raquel', 'Acevedo', 'ra@email.com', 'racevedo', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()); 
+insert into club_member (first_name, last_name, email, user_id, `password`, createdAt, updatedAt) 
+values ('Raquel', 'Acevedo', 'ra@email.com', 'racevedo', 'password4', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()); 
 
-insert into club_member (first_name, last_name, email, user_id, createdAt, updatedAt) 
-values ('Maddy', 'Shrews', 'ms@email.com', 'mshrews', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()); 
+insert into club_member (first_name, last_name, email, user_id, `password`, createdAt, updatedAt) 
+values ('Maddy', 'Shrews', 'ms@email.com', 'mshrews', 'password5', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()); 
 
-insert into club_member (first_name, last_name, email, user_id, createdAt, updatedAt) 
-values ('Ranjan', 'Biswas', 'rb@email.com', 'rbiswas', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()); 
+insert into club_member (first_name, last_name, email, user_id, `password`, createdAt, updatedAt) 
+values ('Ranjan', 'Biswas', 'rb@email.com', 'rbiswas', 'password6', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()); 
 
-insert into club_member (first_name, last_name, email, user_id, createdAt, updatedAt) 
-values ('Sabrina', 'Koumoin', 'sk@email.com', 'skoumoin', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()); 
+insert into club_member (first_name, last_name, email, user_id, `password`, createdAt, updatedAt) 
+values ('Sabrina', 'Koumoin', 'sk@email.com', 'skoumoin', 'password7', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()); 
 
-insert into club_member (first_name, last_name, email, user_id, createdAt, updatedAt) 
-values ('Lawrence', 'Kirk', 'lk@email.com', 'lkirk', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()); 
+insert into club_member (first_name, last_name, email, user_id, `password`, createdAt, updatedAt) 
+values ('Lawrence', 'Kirk', 'lk@email.com', 'lkirk', 'password8', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()); 
 
 -- club member map 
 
