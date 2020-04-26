@@ -43,95 +43,95 @@ values ('Lawrence', 'Kirk', 'lk@email.com', 'lkirk', CURRENT_TIMESTAMP(), CURREN
 
 -- club member map 
 
-insert into club_member_map (fk_club_id, fk_member_id, linked_at)
+insert into club_member_map (fk_club_id, fk_member_id, linked_at, createdAt, updatedAt)
 values (
   (select id from club where club_name = 'Our First Club'),
   (select id from club_member where first_name = 'Brian'),
-  CURRENT_TIMESTAMP()
+  CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP() 
 );
 
-insert into club_member_map (fk_club_id, fk_member_id, linked_at)
+insert into club_member_map (fk_club_id, fk_member_id, linked_at, createdAt, updatedAt)
 values (
   (select id from club where club_name = 'Our First Club'),
   (select id from club_member where first_name = 'Kristin'),
-  CURRENT_TIMESTAMP()
+  CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()
 );
 
-insert into club_member_map (fk_club_id, fk_member_id, linked_at)
+insert into club_member_map (fk_club_id, fk_member_id, linked_at, createdAt, updatedAt)
 values (
   (select id from club where club_name = 'Our First Club'),
   (select id from club_member where first_name = 'Raquel'),
-  CURRENT_TIMESTAMP()
+  CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()
 );
 
-insert into club_member_map (fk_club_id, fk_member_id, linked_at)
+insert into club_member_map (fk_club_id, fk_member_id, linked_at, createdAt, updatedAt)
 values (
   (select id from club where club_name = 'Our First Club'),
   (select id from club_member where first_name = 'Michael'),
-  CURRENT_TIMESTAMP()
+  CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()
 );
 
-insert into club_member_map (fk_club_id, fk_member_id, linked_at)
+insert into club_member_map (fk_club_id, fk_member_id, linked_at, createdAt, updatedAt)
 values (
   (select id from club where club_name = 'Our First Club'),
   (select id from club_member where first_name = 'Maddy'),
-  CURRENT_TIMESTAMP()
+  CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()
 );
 
-insert into club_member_map (fk_club_id, fk_member_id, linked_at)
+insert into club_member_map (fk_club_id, fk_member_id, linked_at, createdAt, updatedAt)
 values (
   (select id from club where club_name = 'Brians Club'),
   (select id from club_member where first_name = 'Brian'),
-  CURRENT_TIMESTAMP()
+  CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()
 );
 
-insert into club_member_map (fk_club_id, fk_member_id, linked_at)
+insert into club_member_map (fk_club_id, fk_member_id, linked_at, createdAt, updatedAt)
 values (
   (select id from club where club_name = 'Brians Club'),
   (select id from club_member where first_name = 'Kristin'),
-  CURRENT_TIMESTAMP()
+  CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()
 );
 
-insert into club_member_map (fk_club_id, fk_member_id, linked_at)
+insert into club_member_map (fk_club_id, fk_member_id, linked_at, createdAt, updatedAt)
 values (
   (select id from club where club_name = 'Brians Club'),
   (select id from club_member where first_name = 'Raquel'),
-  CURRENT_TIMESTAMP()
+  CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()
 );
 
-insert into club_member_map (fk_club_id, fk_member_id, linked_at)
+insert into club_member_map (fk_club_id, fk_member_id, linked_at, createdAt, updatedAt)
 values (
   (select id from club where club_name = 'Brians Club'),
   (select id from club_member where first_name = 'Michael'),
-  CURRENT_TIMESTAMP()
+  CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()
 );
 
-insert into club_member_map (fk_club_id, fk_member_id, linked_at)
+insert into club_member_map (fk_club_id, fk_member_id, linked_at, createdAt, updatedAt)
 values (
   (select id from club where club_name = 'Brians Club'),
   (select id from club_member where first_name = 'Maddy'),
-  CURRENT_TIMESTAMP()
+  CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()
 );
 
-insert into club_member_map (fk_club_id, fk_member_id, linked_at)
+insert into club_member_map (fk_club_id, fk_member_id, linked_at, createdAt, updatedAt)
 values (
   (select id from club where club_name = 'Brians Club'),
   (select id from club_member where first_name = 'Sabrina'),
-  CURRENT_TIMESTAMP()
+  CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()
 );
 
-insert into club_member_map (fk_club_id, fk_member_id, linked_at)
+insert into club_member_map (fk_club_id, fk_member_id, linked_at, createdAt, updatedAt)
 values (
   (select id from club where club_name = 'Brians Club'),
   (select id from club_member where first_name = 'Ranjan'),
-  CURRENT_TIMESTAMP()
+  CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()
 );
 
-insert into club_member_map (fk_club_id, fk_member_id, linked_at)
+insert into club_member_map (fk_club_id, fk_member_id, linked_at, createdAt, updatedAt)
 values (
   (select id from club where club_name = 'Brians Club'),
   (select id from club_member where first_name = 'Lawrence'),
-  CURRENT_TIMESTAMP()
+  CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()
 );
 
 -- club member movie 
@@ -162,22 +162,68 @@ values
    
 -- club member movie comment 
 
-   
 -- club comment 
 
 insert into club_comment (comment, createdAt, updatedAt, fk_club_id, fk_member_id)
-values ('Club 1 comment', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), 1, 1); 
+values ('Club 1 comment', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), 
+   (select id from club where club_name = 'Our First Club'), 
+   (select id from club_member where first_name = 'Brian')
+); 
 
 insert into club_comment (comment, createdAt, updatedAt, fk_club_id, fk_member_id)
-values ('Club 1 comment. Can we retrieve this?', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), 1, 2); 
+values ('Club 1 comment. Can we retrieve this?', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), 
+   (select id from club where club_name = 'Our First Club'), 
+   (select id from club_member where first_name = 'Raquel')
+); 
 
 insert into club_comment (comment, createdAt, updatedAt, fk_club_id, fk_member_id)
-values ('Club 1 comment. Can we retrieve this?', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), 1, 3); 
+values ('Club 1 comment. Can we retrieve this?', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), 
+   (select id from club where club_name = 'Our First Club'), 
+   (select id from club_member where first_name = 'Maddy')
+); 
 
 insert into club_comment (comment, createdAt, updatedAt, fk_club_id, fk_member_id)
-values ('Club 2 comment', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), 2, 1); 
+values ('Club 2 comment', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), 
+   (select id from club where club_name = 'Brians Club'), 
+   (select id from club_member where first_name = 'Brian')
+); 
 
 insert into club_comment (comment, createdAt, updatedAt, fk_club_id, fk_member_id)
-values ('More to say about club 2', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), 2, 4); 
+values ('More to say about club 2', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), 
+   (select id from club where club_name = 'Brians Club'), 
+   (select id from club_member where first_name = 'Michael')
+); 
 
+insert into club_comment (comment, createdAt, updatedAt, fk_club_id, fk_member_id)
+values ('More to say about club 2', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), 
+   (select id from club where club_name = 'Brians Club'), 
+   (select id from club_member where first_name = 'Maddy')
+); 
 
+insert into club_comment (comment, createdAt, updatedAt, fk_club_id, fk_member_id)
+values ('More to say about club 2', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), 
+   (select id from club where club_name = 'Brians Club'), 
+   (select id from club_member where first_name = 'Raquel')
+); 
+
+insert into club_comment (comment, createdAt, updatedAt, fk_club_id, fk_member_id)
+values ('More to say about club 2', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), 
+   (select id from club where club_name = 'Brians Club'), 
+   (select id from club_member where first_name = 'Kristin')
+); 
+
+/* 
+
+select * from club 
+
+select * from club_member
+
+select * from club_member_map
+
+select * from club_member_movie
+
+select * from club_member_movie_comment
+
+select * from club_comment
+
+*/
