@@ -3,7 +3,9 @@
 
 const API_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = 'dddcaacd6435080401b4c85fe6ac99c2';
-
+//
+// const API_URL = 'https://api.themoviedb.org/3/';
+// const API_KEY = '844dba0bfd8f3a4f3799f6130ef9e335';
 
 // Images
 // An image URL looks like this example:
