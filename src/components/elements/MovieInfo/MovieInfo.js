@@ -5,6 +5,8 @@ import FontAwesome from 'react-fontawesome';
 import MovieThumb from '../MovieThumb/MovieThumb';
 import './MovieInfo.css';
 
+
+
 const MovieInfo = ({ movie, directors }) => (
   <div className="rmdb-movieinfo"
     style={{
