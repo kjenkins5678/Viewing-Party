@@ -1,14 +1,14 @@
 import React from 'react';
 import { IonCard, IonList, IonListHeader, IonLabel, IonItem, IonAvatar  } from '@ionic/react';
 
-const ToWatchList: React.FC = () => {
+const WatchedList: React.FC = () => {
   return (
-    <div id="to-watch-list">
+    <div id='watched-list'>
         <IonCard>
             <IonList>
             <IonListHeader>
                 <IonLabel>
-                <h1>To Watch</h1>
+                <h1>Watched</h1>
                 </IonLabel>
             </IonListHeader>
 
@@ -17,7 +17,7 @@ const ToWatchList: React.FC = () => {
                 <img alt="placeholder" src="https://picsum.photos/100" />
                 </IonAvatar>
                 <IonLabel>
-                <h2>Movie 1</h2>
+                <h2>Movie A</h2>
                 <h3>I'm a big deal</h3>
                 <p>Listen, I've had a pretty messed up day...</p>
                 </IonLabel>
@@ -28,7 +28,7 @@ const ToWatchList: React.FC = () => {
                 <img alt="placeholder" src="https://picsum.photos/100" />
                 </IonAvatar>
                 <IonLabel>
-                <h2>Movie 2</h2>
+                <h2>Movie B</h2>
                 <h3>Look, kid...</h3>
                 <p>I've got enough on my plate as it is, and I...</p>
                 </IonLabel>
@@ -39,7 +39,7 @@ const ToWatchList: React.FC = () => {
                 <img alt="placeholder" src="https://picsum.photos/100" />
                 </IonAvatar>
                 <IonLabel>
-                <h2>Movie 3</h2>
+                <h2>Movie C</h2>
                 <h3>I can handle myself</h3>
                 <p>You will remove these restraints and leave...</p>
                 </IonLabel>
@@ -50,7 +50,7 @@ const ToWatchList: React.FC = () => {
                 <img alt="placeholder" src="https://picsum.photos/100" />
                 </IonAvatar>
                 <IonLabel>
-                <h2>Movie 4</h2>
+                <h2>Movie D</h2>
                 <h3>Your thoughts betray you</h3>
                 <p>I feel the good in you, the conflict...</p>
                 </IonLabel>
@@ -62,4 +62,4 @@ const ToWatchList: React.FC = () => {
   );
 };
 
-export default ToWatchList;
+export default WatchedList;
