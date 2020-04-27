@@ -14,10 +14,10 @@ const API_KEY = 'dddcaacd6435080401b4c85fe6ac99c2';
 const IMAGE_BASE_URL ='http://image.tmdb.org/t/p/';
 
 //Sizes: w300, w780, w1280, original
-const BACKDROP_SIZE = 'w300'
+const BACKDROP_SIZE = 'w1280'
 
 // w92, w154, w185, w342, w500, w780, original
-const POSTER_SIZE = 'w92'
+const POSTER_SIZE = 'w500'
 
 export {
   API_URL,
