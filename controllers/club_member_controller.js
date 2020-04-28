@@ -42,26 +42,20 @@ module.exports.findOne = (req, res) => {
 // **********************************************
 
 module.exports.create = (req, res) => {
-  // Validate request
-/*  if (!req.body.title) {
-    res.status(400).send({
-      message: "Content can not be empty!"
-    });
-    return;
-  }
-*/
 
-  console.log ('Member. Create'); 
+  console.log ('Member controller. Create'); 
 
   // Create a member
   const member = {
     first_name: req.body.first_name,
     last_name: req.body.last_name, 
     email: req.body.email,
-    user_id: req.body.user_id
+    user_id: req.body.user_id, 
+    password: req.body.password
   };
 
   console.log ('Member. ' + member.first_name); 
+  console.log ('Pwd. ' + member.password); 
 
   // Save club in the database
   Club_Member.create(member)

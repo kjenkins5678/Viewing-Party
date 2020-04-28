@@ -29,6 +29,15 @@ function BcmPage() {
       .catch(err => console.log(err));
   }
 
+  function addAClub () {
+    console.log ("entering addAClub"); 
+    API.addAClub({
+      club_name: 'testClub200428'
+    })
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+  }
+
   function getAllMembers () {
     console.log ('entering getMembers'); 
     API.getMembers()  
@@ -46,6 +55,19 @@ function BcmPage() {
       console.log(res)
         //setBooks(res.data)
       )
+      .catch(err => console.log(err));
+  }
+
+  function addAMember () {
+    console.log ("entering addAMember"); 
+    API.addAMember({
+      first_name: 'LeBron',
+      last_name: 'James', 
+      email: 'lbj@email.com',
+      user_id: 'lbjames', 
+      password: 'pwd'
+    })
+      .then(res => console.log(res))
       .catch(err => console.log(err));
   }
 
@@ -185,6 +207,13 @@ function BcmPage() {
           </IonButton>
           <IonButton size="small" color="warning" onClick={getClubComments} >
             Club Comments
+          </IonButton>
+          <hr></hr>
+          <IonButton size="small" color="warning" onClick={addAClub} >
+            Add Club
+          </IonButton>
+          <IonButton size="small" color="warning" onClick={addAMember} >
+            Add Member
           </IonButton>
 
       </IonContent>

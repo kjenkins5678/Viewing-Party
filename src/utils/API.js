@@ -8,12 +8,20 @@ export default {
   getAClub: function(id){
     return axios.get("/api/club/" + id);
   }, 
+  addAClub: function(club) {
+    return axios.post("/api/club", club);
+  }, 
   getMembers: function() {
     return axios.get("/api/member");
   },
   getAMember: function(id){
     return axios.get("/api/member/" + id); 
   }, 
+  addAMember: function (member){
+    console.log ("API. addAMember"); 
+    console.log ("fname " + member.first_name); 
+    return axios.post("/api/member", member);
+  },
   getMemberClubs: function (id){
     return axios.get("/api/member_clubs/" + id);
   },
