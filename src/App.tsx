@@ -15,6 +15,7 @@ import MyClubs from './pages/MyClubs';
 import Search from './pages/Search';
 import MyPage from './pages/MyPage';
 import Home from './pages/Home';
+import BcmPage from './pages/BcmPage'; 
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -40,6 +41,7 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
+          <Route path="/bcm" component={BcmPage} exact={true} />
           <Route path="/home" component={Home} exact={true} />
           <Route path="/myclubs" component={MyClubs} exact={true} />
           <Route path="/search" component={Search} exact={true} />
