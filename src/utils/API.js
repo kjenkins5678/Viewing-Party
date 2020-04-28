@@ -8,18 +8,30 @@ export default {
   getAClub: function(id){
     return axios.get("/api/club/" + id);
   }, 
+  addAClub: function(club) {
+    return axios.post("/api/club", club);
+  }, 
   getMembers: function() {
     return axios.get("/api/member");
   },
   getAMember: function(id){
     return axios.get("/api/member/" + id); 
   }, 
+  addAMember: function (member){
+    console.log ("API. addAMember"); 
+    console.log ("fname " + member.first_name); 
+    return axios.post("/api/member", member);
+  },
   getMemberClubs: function (id){
     return axios.get("/api/member_clubs/" + id);
   },
   getClubMembers: function (id){
     return axios.get("/api/club_members/" + id); 
   }, 
+  addAMemberClub: function (memberMap){
+    console.log ("API. addMemberMap " + memberMap.fk_member_id);
+    return axios.post("/api/club_member_map", memberMap);
+  },
   getMovies: function () {
     return axios.get("/api/movie");
   },
@@ -29,6 +41,10 @@ export default {
   getMovieMembers: function (id) {
     return axios.get("/api/movie_members/" + id);
   }, 
+  addAMemberMovie: function (memberMovie){
+    console.log ("API. addAMemberMovie " + memberMovie.title);
+    return axios.post("/api/movie", memberMovie);
+  },
   getComments: function (){
     return axios.get("/api/cc");
   },

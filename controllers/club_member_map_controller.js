@@ -54,14 +54,6 @@ module.exports.findMemberClubs = (req, res) => {
 // **********************************************
 
 module.exports.create = (req, res) => {
-  // Validate request
-/*  if (!req.body.title) {
-    res.status(400).send({
-      message: "Content can not be empty!"
-    });
-    return;
-  }
-*/
 
   console.log ('Club/Member Map. Create'); 
 
@@ -72,7 +64,7 @@ module.exports.create = (req, res) => {
     linked_at: new Date()
   };
 
-  console.log ('Club name. ' + cmm.fk_member_id); 
+  console.log ('Member ID. ' + cmm.fk_member_id); 
 
   // Save club in the database
   Club_Member_Map.create(cmm)

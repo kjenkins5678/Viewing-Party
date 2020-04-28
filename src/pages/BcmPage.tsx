@@ -29,6 +29,15 @@ function BcmPage() {
       .catch(err => console.log(err));
   }
 
+  function addAClub () {
+    console.log ("entering addAClub"); 
+    API.addAClub({
+      club_name: 'testClub200428'
+    })
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+  }
+
   function getAllMembers () {
     console.log ('entering getMembers'); 
     API.getMembers()  
@@ -49,6 +58,19 @@ function BcmPage() {
       .catch(err => console.log(err));
   }
 
+  function addAMember () {
+    console.log ("entering addAMember"); 
+    API.addAMember({
+      first_name: 'LeBron',
+      last_name: 'James', 
+      email: 'lbj@email.com',
+      user_id: 'lbjames', 
+      password: 'pwd'
+    })
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+  }
+
   function getMemberClubs () {
     console.log ('entering getMemberClubs'); 
     API.getMemberClubs(23)
@@ -66,6 +88,16 @@ function BcmPage() {
       console.log(res)
         //setBooks(res.data)
       )
+      .catch(err => console.log(err));
+  }
+
+  function addAMemberClub () {
+    console.log ("entering addAMemberClub"); 
+    API.addAMemberClub({
+      fk_member_id: '8',
+      fk_club_id: '1'
+    })
+      .then(res => console.log(res))
       .catch(err => console.log(err));
   }
 
@@ -96,6 +128,22 @@ function BcmPage() {
       console.log(res)
         //setBooks(res.data)
       )
+      .catch(err => console.log(err));
+  }
+
+  function addAMemberMovie () {
+    console.log ("entering addAMemberMovie"); 
+    API.addAMemberMovie({
+      fk_club_id:"1",
+      fk_member_id:"1",
+      movie_status: "NEW",
+      title: "Project 3",
+      tmdb_id: "99",
+      synopsis: "Genre: HORROR",
+      poster_url: "www.posterurl.com",
+      reviews_url: "www.reviewsurl.com"
+    })
+      .then(res => console.log(res))
       .catch(err => console.log(err));
   }
 
@@ -185,6 +233,19 @@ function BcmPage() {
           </IonButton>
           <IonButton size="small" color="warning" onClick={getClubComments} >
             Club Comments
+          </IonButton>
+          <hr></hr>
+          <IonButton size="small" color="warning" onClick={addAClub} >
+            Add Club
+          </IonButton>
+          <IonButton size="small" color="warning" onClick={addAMember} >
+            Add Member
+          </IonButton>
+          <IonButton size="small" color="warning" onClick={addAMemberClub} >
+            Add Member Club Map
+          </IonButton>
+          <IonButton size="small" color="warning" onClick={addAMemberMovie} >
+            Add Member Movie
           </IonButton>
 
       </IonContent>

@@ -12,13 +12,19 @@ CREATE TABLE club (
   PRIMARY KEY (id)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+/*
+
+drop table club_member
+
+*/ 
+
 CREATE TABLE club_member (
   id                 int NOT NULL AUTO_INCREMENT,
   first_name         varchar (128) NOT NULL,
   last_name          varchar (128) NOT NULL,
   email              varchar (128) NOT NULL,
   user_id            varchar (16) NOT NULL,
-  `password`		 varchar (16) NOT NULL,
+  password           varchar (16) NOT NULL,
   createdAt          datetime NOT NULL,
   updatedAt          datetime NOT NULL,
   PRIMARY KEY (id)
