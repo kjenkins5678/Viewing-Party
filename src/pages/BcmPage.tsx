@@ -91,6 +91,16 @@ function BcmPage() {
       .catch(err => console.log(err));
   }
 
+  function addAMemberClub () {
+    console.log ("entering addAMemberClub"); 
+    API.addAMemberClub({
+      fk_member_id: '8',
+      fk_club_id: '1'
+    })
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+  }
+
   function getAllMovies(){
     console.log ('entering getMovies'); 
     API.getMovies()
@@ -118,6 +128,22 @@ function BcmPage() {
       console.log(res)
         //setBooks(res.data)
       )
+      .catch(err => console.log(err));
+  }
+
+  function addAMemberMovie () {
+    console.log ("entering addAMemberMovie"); 
+    API.addAMemberMovie({
+      fk_club_id:"1",
+      fk_member_id:"1",
+      movie_status: "NEW",
+      title: "Project 3",
+      tmdb_id: "99",
+      synopsis: "Genre: HORROR",
+      poster_url: "www.posterurl.com",
+      reviews_url: "www.reviewsurl.com"
+    })
+      .then(res => console.log(res))
       .catch(err => console.log(err));
   }
 
@@ -214,6 +240,12 @@ function BcmPage() {
           </IonButton>
           <IonButton size="small" color="warning" onClick={addAMember} >
             Add Member
+          </IonButton>
+          <IonButton size="small" color="warning" onClick={addAMemberClub} >
+            Add Member Club Map
+          </IonButton>
+          <IonButton size="small" color="warning" onClick={addAMemberMovie} >
+            Add Member Movie
           </IonButton>
 
       </IonContent>

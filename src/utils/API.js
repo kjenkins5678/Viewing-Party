@@ -28,6 +28,10 @@ export default {
   getClubMembers: function (id){
     return axios.get("/api/club_members/" + id); 
   }, 
+  addAMemberClub: function (memberMap){
+    console.log ("API. addMemberMap " + memberMap.fk_member_id);
+    return axios.post("/api/club_member_map", memberMap);
+  },
   getMovies: function () {
     return axios.get("/api/movie");
   },
@@ -37,6 +41,10 @@ export default {
   getMovieMembers: function (id) {
     return axios.get("/api/movie_members/" + id);
   }, 
+  addAMemberMovie: function (memberMovie){
+    console.log ("API. addAMemberMovie " + memberMovie.title);
+    return axios.post("/api/movie", memberMovie);
+  },
   getComments: function (){
     return axios.get("/api/cc");
   },
