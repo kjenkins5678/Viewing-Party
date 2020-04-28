@@ -1,6 +1,6 @@
 import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonIcon, IonButton } from '@ionic/react';
-import ClubCard from '../components/ClubCard';
+import EditClubCard from '../components/EditClubCard';
 import { create } from 'ionicons/icons';
 // import PlaceholderContainer from '../components/PlaceholderContainer';
 import './MyClubs.css';
@@ -22,7 +22,7 @@ const MyClubs: React.FC = () => {
             <IonTitle size="large">My Clubs</IonTitle>
           </IonToolbar>
         </IonHeader>
-          <ClubCard></ClubCard>
+          <EditClubCard></EditClubCard>
         {/* <PlaceholderContainer name="My Clubs" /> */}
       </IonContent>
     </IonPage>

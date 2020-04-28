@@ -10,17 +10,6 @@ const ClubCard: React.FC = () => {
                 <h2>Club Name Here</h2>
           </IonLabel>
         </IonCardHeader>
-        <IonItem routerLink={`/club/club_id_here`}>
-          <IonButton>
-            <IonIcon slot="icon-only" icon={hammer} />
-          </IonButton>
-        </IonItem>
-        <IonItem routerLink={`/club/delete/club_id_here`}>
-          <IonButton>
-            <IonIcon icon={trash} />
-          </IonButton>
-        </IonItem>
-
       </IonCard>
   );
 };
