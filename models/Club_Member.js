@@ -1,3 +1,5 @@
+let bcrypt = require("bcryptjs");
+
 module.exports = function(sequelize, DataTypes) {
 
   var Club_Member = sequelize.define('club_member', {
@@ -20,6 +22,10 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     user_id: {
+      type: DataTypes.STRING(16),
+      allowNull: false
+    },
+    password: {
       type: DataTypes.STRING(16),
       allowNull: false
     },
@@ -54,6 +60,14 @@ module.exports = function(sequelize, DataTypes) {
     });
 
   };
+
+  Club_Member.prototype.validPassword = function(password) {
+    return bcrypt.compareSync(password, this.password);
+  };
+  
+  Club_Member.addHook("beforeCreate", function(user) {
+    user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+  });
 
   return Club_Member; 
 };
