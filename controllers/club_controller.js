@@ -83,15 +83,30 @@ module.exports.update = (req, res) => {
 };
 
 // **********************************************
+// Delete a club by ID
 // **********************************************
 
-// Delete a club with the specified id in the request
 module.exports.delete = (req, res) => {
-  
-};
+  const id = req.params.id;
 
-// Delete all clubs from the database.
-module.exports.deleteAll = (req, res) => {
-  
+  Club.destroy({
+    where: { id: id }
+  })
+    .then(num => {
+      if (num == 1) {
+        res.send({
+          message: "Club was deleted successfully!"
+        });
+      } else {
+        res.send({
+          message: `Cannot delete club with id=${id}.`
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Could not delete club with id=" + id
+      });
+    });
 };
 

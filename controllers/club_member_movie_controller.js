@@ -120,15 +120,30 @@ exports.update = (req, res) => {
 };
 
 // **********************************************
+// Delete a club comment by ID
 // **********************************************
 
-// Delete a club with the specified id in the request
-exports.delete = (req, res) => {
-  
-};
+module.exports.delete = (req, res) => {
+  const id = req.params.id;
 
-// Delete all clubs from the database.
-exports.deleteAll = (req, res) => {
-  
+  Club_Member_Movie.destroy({
+    where: { id: id }
+  })
+    .then(num => {
+      if (num == 1) {
+        res.send({
+          message: "Movie was deleted successfully!"
+        });
+      } else {
+        res.send({
+          message: `Cannot delete movie with id=${id}.`
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Could not delete movie with id=" + id
+      });
+    });
 };
 

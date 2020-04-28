@@ -1,6 +1,8 @@
 import React from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import PlaceholderContainer from '../components/PlaceholderContainer';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonIcon, IonButton } from '@ionic/react';
+import ClubCard from '../components/ClubCard';
+import { create } from 'ionicons/icons';
+// import PlaceholderContainer from '../components/PlaceholderContainer';
 import './MyClubs.css';
 
 const MyClubs: React.FC = () => {
@@ -8,7 +10,10 @@ const MyClubs: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle> My Clubs</IonTitle>
+          <IonButton slot='primary'>
+              <IonIcon slot="icon-only" icon={create}></IonIcon>
+          </IonButton>
+          <IonTitle>My Clubs</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
@@ -17,7 +22,8 @@ const MyClubs: React.FC = () => {
             <IonTitle size="large">My Clubs</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <PlaceholderContainer name="My Clubs" />
+          <ClubCard></ClubCard>
+        {/* <PlaceholderContainer name="My Clubs" /> */}
       </IonContent>
     </IonPage>
   );

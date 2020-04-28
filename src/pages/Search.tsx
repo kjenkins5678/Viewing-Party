@@ -1,7 +1,17 @@
 import React from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import PlaceholderContainer from '../components/PlaceholderContainer';
-import './Search.css';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardContent } from '@ionic/react';
+
+import '../components/Home/Home.css';
+
+
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Home from '../components/Home/Home';
+import Header from '../components/elements/Header/Header';
+import Movie from '../components/Movies/Movie';
+import NotFound from '../components/elements/NotFound/NotFound';
+
+
+
 
 const Search: React.FC = () => {
   return (
@@ -11,13 +21,13 @@ const Search: React.FC = () => {
           <IonTitle>Search Movies or Shows</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Search Movies or Shows</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <PlaceholderContainer name="Search Movies or Shows" />
+
+      <IonContent class="outer-content">
+      <Switch>
+      <Route path="/" component={Home}  />
+      <Route path="/:movieId" component={Movie}  />
+      <Route component={NotFound} />
+      </Switch>
       </IonContent>
     </IonPage>
   );

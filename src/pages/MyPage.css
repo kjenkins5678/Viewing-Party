@@ -1,3 +1,17 @@
 ion-content ion-toolbar {
   --background: translucent;
 }
+
+#my-page {
+
+  #watched-list, #to-watch-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #watched-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+}
