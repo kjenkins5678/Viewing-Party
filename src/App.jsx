@@ -77,6 +77,10 @@ class App extends React.Component {
                   <IonIcon icon={personCircle} />
                   <IonLabel>My Page</IonLabel>
                 </IonTabButton>
+              <IonTabButton tab="BCM Page" href="/bcm">
+                  <IonIcon icon={personCircle} />
+                  <IonLabel>BCM Page</IonLabel>
+                </IonTabButton>
               <IonTabButton tab="My Clubs" href="/myclubs">
                 <IonIcon icon={people} />
                 <IonLabel>My Clubs</IonLabel>
