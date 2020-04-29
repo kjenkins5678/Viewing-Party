@@ -2,12 +2,12 @@ import React from 'react';
 import { IonCard, IonCardHeader, IonItem, IonLabel, IonButton, IonIcon } from '@ionic/react';
 import { hammer, trash } from 'ionicons/icons';
 
-const EditClubCard: React.FC = () => {
+const EditClubCard: React.FC = ({ children }) => {
   return (
       <IonCard className="club-card">
         <IonCardHeader>
           <IonLabel>
-                <h2>Club Name Here</h2>
+                <h2>{children}</h2>
           </IonLabel>
         </IonCardHeader>
         <IonItem routerLink={`/club/club_id_here`}>
