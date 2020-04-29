@@ -38,6 +38,15 @@ function BcmPage() {
       .catch(err => console.log(err));
   }
 
+  function deleteAClub () {
+    console.log ("entering deleteAClub"); 
+    API.deleteAClub(3)  
+      .then(res => 
+      console.log(res)
+      )
+      .catch(err => console.log(err));
+  }
+
   function getAllMembers () {
     console.log ('entering getMembers'); 
     API.getMembers()  
@@ -71,6 +80,15 @@ function BcmPage() {
       .catch(err => console.log(err));
   }
 
+  function deleteAMember () {
+    console.log ("entering deleteAMember"); 
+    API.deleteAMember(9)  
+      .then(res => 
+      console.log(res)
+      )
+      .catch(err => console.log(err));
+  }
+
   function getMemberClubs () {
     console.log ('entering getMemberClubs'); 
     API.getMemberClubs(23)
@@ -98,6 +116,15 @@ function BcmPage() {
       fk_club_id: '1'
     })
       .then(res => console.log(res))
+      .catch(err => console.log(err));
+  }
+
+  function deleteAMemberClub () {
+    console.log ("entering deleteAMemberClub"); 
+    API.deleteAMemberClub(15)  
+      .then(res => 
+      console.log(res)
+      )
       .catch(err => console.log(err));
   }
 
@@ -177,6 +204,17 @@ function BcmPage() {
       .catch(err => console.log(err));
   }
 
+  function addAClubComment (){
+    console.log ('entering addAClubComment'); 
+    API.addAClubComment({
+      	comment: "Club comment 200428 #1",
+        fk_club_id: "1",
+        fk_member_id: "2"
+    })
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+  }
+
   return (
     <IonPage>
       <IonHeader>
@@ -246,6 +284,19 @@ function BcmPage() {
           </IonButton>
           <IonButton size="small" color="warning" onClick={addAMemberMovie} >
             Add Member Movie
+          </IonButton>
+          <IonButton size="small" color="warning" onClick={addAClubComment} >
+            Add Club Comment
+          </IonButton>
+          <hr></hr>
+          <IonButton size="small" color="warning" onClick={deleteAClub} >
+            Delete Club
+          </IonButton>
+          <IonButton size="small" color="warning" onClick={deleteAMember} >
+            Delete Member
+          </IonButton>
+          <IonButton size="small" color="warning" onClick={deleteAMemberClub} >
+            Delete Member Club Map
           </IonButton>
 
       </IonContent>
