@@ -48,8 +48,8 @@ function loadClubs() {
                   // console.log(club['club_name'])
                   return (
                     <EditClubCard key={club["id"]}>
-                      <a href={"/club/something"}>
-                        {club['club_name']}                  
+                      <a href={`club/edit/${club["id"]}`}>
+                        {club['club_name']}
                       </a>
                     </EditClubCard>
                   );
