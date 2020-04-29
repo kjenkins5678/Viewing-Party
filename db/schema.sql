@@ -24,7 +24,7 @@ CREATE TABLE club_member (
   last_name          varchar (128) NOT NULL,
   email              varchar (128) NOT NULL,
   user_id            varchar (16) NOT NULL,
-  password           varchar (16) NOT NULL,
+  password           varchar (4096) NOT NULL,
   createdAt          datetime NOT NULL,
   updatedAt          datetime NOT NULL,
   PRIMARY KEY (id)
