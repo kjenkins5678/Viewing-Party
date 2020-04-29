@@ -45,12 +45,11 @@ function loadClubs() {
           {clubs.length ? (
               <div>
                 {clubs.map(club => {
+                  // console.log(club['club_name'])
                   return (
-                    <EditClubCard>
+                    <EditClubCard key={club["id"]}>
                       <a href={"/club/something"}>
-                        <strong>
-                          Test                      
-                        </strong>
+                        {club['club_name']}                  
                       </a>
                     </EditClubCard>
                   );
