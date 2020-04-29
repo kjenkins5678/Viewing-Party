@@ -1,3 +1,6 @@
+
+//inserting a tab bar to navigate
+
 import React from 'react';
 import { IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel, IonBadge } from '@ionic/react';
 import { calendar, personCircle, map, informationCircle } from 'ionicons/icons';
@@ -29,3 +32,5 @@ export const TabsExample: React.FC = () => (
     </IonTabBar>
   </IonTabs>
 );
+
+// the following is a picker in ionic. 
