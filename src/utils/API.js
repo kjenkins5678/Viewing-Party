@@ -53,6 +53,9 @@ export default {
   },
   getClubComments: function (id) {
     return axios.get("/api/club_cc/" + id);
+  }, 
+  addAClubComment: function (comment) {
+    return axios.post("api/club_cc/", comment)
   }
 /*
 

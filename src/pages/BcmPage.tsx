@@ -177,6 +177,17 @@ function BcmPage() {
       .catch(err => console.log(err));
   }
 
+  function addAClubComment (){
+    console.log ('entering addAClubComment'); 
+    API.addAClubComment({
+      	comment: "Club comment 200428 #1",
+        fk_club_id: "1",
+        fk_member_id: "2"
+    })
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+  }
+
   return (
     <IonPage>
       <IonHeader>
@@ -246,6 +257,9 @@ function BcmPage() {
           </IonButton>
           <IonButton size="small" color="warning" onClick={addAMemberMovie} >
             Add Member Movie
+          </IonButton>
+          <IonButton size="small" color="warning" onClick={addAClubComment} >
+            Add Club Comment
           </IonButton>
 
       </IonContent>
