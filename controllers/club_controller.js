@@ -43,14 +43,6 @@ module.exports.findOne = (req, res) => {
 // **********************************************
 
 module.exports.create = (req, res) => {
-  // Validate request
-/*  if (!req.body.title) {
-    res.status(400).send({
-      message: "Content can not be empty!"
-    });
-    return;
-  }
-*/
 
   console.log ('Club. Create'); 
 

@@ -11,6 +11,10 @@ export default {
   addAClub: function(club) {
     return axios.post("/api/club", club);
   }, 
+  deleteAClub: function (id){
+    console.log ("deleteAClub " + id); 
+    return axios.delete("/api/club/" + id); 
+  }, 
   getMembers: function() {
     return axios.get("/api/member");
   },
@@ -22,6 +26,10 @@ export default {
     console.log ("fname " + member.first_name); 
     return axios.post("/api/member", member);
   },
+  deleteAMember: function (id){
+    console.log("deleteAMember " + id); 
+    return axios.delete("/api/member/" + id); 
+  }, 
   getMemberClubs: function (id){
     return axios.get("/api/member_clubs/" + id);
   },
@@ -31,6 +39,10 @@ export default {
   addAMemberClub: function (memberMap){
     console.log ("API. addMemberMap " + memberMap.fk_member_id);
     return axios.post("/api/club_member_map", memberMap);
+  },
+  deleteAMemberClub: function (id){
+    console.log ("deleteAMemberClub " + id);
+    return axios.delete("/api/club_member_map/" + id);
   },
   getMovies: function () {
     return axios.get("/api/movie");
