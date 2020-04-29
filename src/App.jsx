@@ -11,6 +11,7 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { search, personCircle, people, home } from 'ionicons/icons';
+import axios from 'axios';
 import MyClubs from './pages/MyClubs';
 import Search from './pages/Search';
 import MyPage from './pages/MyPage';
@@ -42,12 +43,16 @@ import './theme/variables.css';
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {loggedIn: false}
+    this.state = {loggedIn: false, currentUserID: null}
 
     this.handleLogin = this.handleLogin.bind(this);
   }
 
-  handleLogin() {
+  handleLogin(response) {
+    this.setState({
+      currentUserID: response.data
+    });
+    console.log(this.state.currentUserID);
     this.setState({
       loggedIn: true
     });

@@ -3,6 +3,8 @@
 
 const express = require ("express"); 
 const bodyParser = require ("body-parser");
+var session = require("express-session");
+var passport = require("./config/passport");
 const cors = require ("cors"); 
 const app = express(); 
 var corsOptions = {
@@ -14,6 +16,11 @@ db.sequelize.sync();
 app.use(cors(corsOptions)); 
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
+
+app.use(session({ secret: "keyboard cat", resave: false, saveUninitialized: false }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // simple route
 app.get("/", (req, res) => {

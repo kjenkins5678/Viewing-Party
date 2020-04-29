@@ -1,10 +1,24 @@
 import React, { useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonGrid, IonRow, IonCol, IonList, IonItem, IonItemDivider, IonInput, IonLabel } from '@ionic/react';
+import axios from 'axios';
 
 function Login(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
+    function callPassport() {
+      axios.post('/api/login', {
+        user_id: username,
+        password: password
+      })
+      .then(function(response) {
+        console.log(response.data);
+        props.handleLogin(response);
+      })
+      .catch(function(err) {
+        console.log(err);
+      })
+    }
   return (
     <IonPage>
       <IonHeader>
@@ -27,7 +41,7 @@ function Login(props) {
 
           <IonItemDivider></IonItemDivider>
           <IonItem>
-              <IonButton expand="block" color="secondary" onClick={props.handleLogin}>Login</IonButton>
+              <IonButton expand="block" color="secondary" onClick={callPassport}>Login</IonButton>
           </IonItem>
         </IonList>
       </IonContent>
