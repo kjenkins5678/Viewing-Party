@@ -140,7 +140,7 @@ function BcmPage() {
 
   function getMemberMovies (){
     console.log ('entering getMemberMovies'); 
-    API.getMemberMovies (18)
+    API.getMemberMovies (1)
       .then(res => 
       console.log(res)
         //setBooks(res.data)
@@ -215,6 +215,47 @@ function BcmPage() {
       .catch(err => console.log(err));
   }
 
+  function getAllMovieComments(){
+    console.log ('entering getMovieComments'); 
+    API.getMovieComments()
+      .then(res => 
+      console.log(res)
+        //setBooks(res.data)
+      )
+      .catch(err => console.log(err));
+  }
+
+  function getAMovieComment(){
+    console.log ('entering getAMovieComment'); 
+    API.getAMovieComment(2)
+      .then(res => 
+      console.log(res)
+      )
+      .catch(err => console.log(err));
+  }
+
+  function getTMDBIDComments(){
+    console.log ('entering getTMDBIDComments'); 
+    API.getTMDBIDComments(1)
+      .then(res => 
+      console.log(res)
+      )
+      .catch(err => console.log(err));
+  }
+
+  function addAMovieComment (){
+    console.log ('entering addAMovieComment'); 
+    API.addAMovieComment({
+      	comment: "Movie comment 200429 #1",
+        fk_club_id: "2",
+        fk_member_id: "1", 
+        fk_movie_id: "1"
+    })
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+  }
+
+
   return (
     <IonPage>
       <IonHeader>
@@ -272,6 +313,16 @@ function BcmPage() {
           <IonButton size="small" color="warning" onClick={getClubComments} >
             Club Comments
           </IonButton>
+          <IonButton size="small" color="warning" onClick={getAllMovieComments} >
+            All Movie Comments
+          </IonButton>
+          <IonButton size="small" color="warning" onClick={getAMovieComment} >
+            One Movie Comment
+          </IonButton>
+          <IonButton size="small" color="warning" onClick={getTMDBIDComments} >
+            TMDB ID Comments
+          </IonButton>
+
           <hr></hr>
           <IonButton size="small" color="warning" onClick={addAClub} >
             Add Club
@@ -287,6 +338,9 @@ function BcmPage() {
           </IonButton>
           <IonButton size="small" color="warning" onClick={addAClubComment} >
             Add Club Comment
+          </IonButton>
+          <IonButton size="small" color="warning" onClick={addAMovieComment} >
+            Add Movie Comment
           </IonButton>
           <hr></hr>
           <IonButton size="small" color="warning" onClick={deleteAClub} >
