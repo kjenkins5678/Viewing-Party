@@ -48,7 +48,7 @@ module.exports = app => {
 
   app.post("/api/club_member_map", club_member_map.create);
 
-  app.delete("/api/club_member_map/:id", club_member_map.delete);
+  app.delete("/api/ /:id", club_member_map.delete);
 
   // ********************************************
   // clubs member movies  
@@ -74,7 +74,7 @@ module.exports = app => {
 
   app.get("/api/movie_comment/:id", club_member_movie_comment.findOne);
 
-  app.get("/api/member_movie_comments", club_member_movie_comment.findMemberMovieComments);
+  app.get("/api/tmdbid_comments/:id", club_member_movie_comment.findTMDBIDComments);
 
   app.post("/api/movie_comment", club_member_movie_comment.create);
 

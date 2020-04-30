@@ -57,6 +57,18 @@ export default {
     console.log ("API. addAMemberMovie " + memberMovie.title);
     return axios.post("/api/movie", memberMovie);
   },
+  getMovieComments: function () {
+    return axios.get("/api/movie_comment");
+  }, 
+  getAMovieComment: function (id) {
+    return axios.get("/api/movie_comment/" + id);
+  }, 
+  getTMDBIDComments: function (id) {
+    return axios.get("/api/tmdbid_comments/" + id);
+  }, 
+  addAMovieComment: function (comment) {
+    return axios.post("api/movie_comment/", comment)
+  }, 
   getComments: function (){
     return axios.get("/api/cc");
   },
