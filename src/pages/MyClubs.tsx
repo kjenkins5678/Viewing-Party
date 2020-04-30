@@ -47,10 +47,10 @@ function loadClubs() {
                 {clubs.map(club => {
                   // console.log(club['club_name'])
                   return (
-                    <EditClubCard key={club["id"]}>
-                      <a href={`club/edit/${club["id"]}`}>
-                        {club['club_name']}
-                      </a>
+                    <EditClubCard 
+                      key={club["id"]} 
+                      club_name={club['club_name']}
+                    >  
                     </EditClubCard>
                   );
                 })}
