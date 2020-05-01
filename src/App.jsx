@@ -89,7 +89,7 @@ class App extends React.Component {
               <Route exact path="/home" render={(props) => this.state.loggedIn ? <Home handleLogout={this.handleLogout}/> : <Redirect to='/' />} />
               <Route exact path="/myclubs" render={(props) => this.state.loggedIn ? <MyClubs handleLogout={this.handleLogout}/> : <Redirect to='/' />} />
               <Route exact path="/search" render={(props) => this.state.loggedIn ? <Search handleLogout={this.handleLogout}/> : <Redirect to='/' />} />
-              <Route exact path="/mypage" render={(props) => this.state.loggedIn ? <MyPage handleLogout={this.handleLogout}/> : <Redirect to='/' />} />
+              <Route exact path="/mypage" render={(props) => this.state.loggedIn ? <MyPage handleLogout={this.handleLogout} currentUserID={this.state.currentUserID} loggedIn={this.state.loggedIn} /> : <Redirect to='/' />} />
               <Route exact path="/" render={(props) => this.state.loggedIn ? <Redirect to='/home' /> : <LoginorSignUp />} />
               <Route exact path="/login" render={(props) => this.state.loggedIn ? <Redirect to='/home' /> : <Login handleLogin={this.handleLogin} />} />
               <Route exact path="/signup" render={(props) => this.state.loggedIn ? <Redirect to='/home' /> : <SignUp />} />

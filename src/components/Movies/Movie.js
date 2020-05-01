@@ -40,7 +40,7 @@ class Movie extends Component {
     fetch(endpoint)
     .then(result => result.json())
     .then(result => {
-
+      
       if (result.status_code) {
         // If we don't find any movie
         this.setState({ loading: false });
@@ -52,7 +52,7 @@ class Movie extends Component {
           fetch(endpoint)
           .then(result => result.json())
           .then(result => {
-
+            
             const directors = result.crew.filter( (member) => member.job === "Director");
 
             this.setState({
