@@ -7,9 +7,19 @@ import "./NewClub.css";
 
 function NewClub() {
 
+    function addAClub (data) {
+        console.log ("entering addAClub"); 
+        API.addAClub({
+          club_name: data
+        })
+          .then(res => console.log(res))
+          .catch(err => console.log(err));
+      }
+
     const { register, handleSubmit} = useForm();
     const onSubmit = data => {
         console.log(data);
+        addAClub(data.club_name)
     }; // your form submit function which will invoke after successful validation
 
     return (
