@@ -5,16 +5,9 @@ import { matchPath } from 'react-router';
 import { generatePath } from 'react-router-dom';
 import { Query } from 'react-apollo';
 
-import { Loading } from 'components/Loading';
-import { H3, A } from 'components/Text';
-import { Spacing } from 'components/Layout';
-import Avatar from 'components/Avatar';
-
 import { useStore } from 'store';
 
-import { USER_SUGGESTIONS } from 'graphql/user';
-
-import { USER_SUGGESTIONS_WIDTH, HEADER_HEIGHT } from 'constants/Layout';
+import { Club_Member } from 'club_member.js';
 
 import * as Routes from 'routes';
 
@@ -26,7 +19,7 @@ const Root = styled.div`
   top: ${HEADER_HEIGHT + 40}px;
   right: 0;
   height: 100%;
-  width: ${USER_SUGGESTIONS_WIDTH}px;
+  width: ${CLUB_PAGE_WIDTH}px;
   padding: ${p => p.theme.spacing.sm};
   border-radius: ${p => p.theme.radius.sm};
   @media (min-width: ${p => p.theme.screen.md}) {
@@ -60,9 +53,9 @@ const UserName = styled.div`
 `;
 
 /**
- * Displays user suggestions
+ * Displays groups
  */
-const UserSuggestions = ({ pathname }) => {
+const groupClubs = ({ pathname }) => {
   const [{ auth }] = useStore();
 
   const hideUserSuggestions = matchPath(pathname, {
@@ -87,10 +80,10 @@ const UserSuggestions = ({ pathname }) => {
 
         return (
           <Root>
-            <H3>Suggestions For You</H3>
+            <H3>GroupPage</H3>
 
             <List>
-              {data.suggestPeople.map(user => (
+              {data.myGroups.map(user => (
                 <ListItem key={user.id}>
                   <A
                     to={generatePath(Routes.USER_PROFILE, {
@@ -124,4 +117,4 @@ UserSuggestions.propTypes = {
   pathname: PropTypes.string.isRequired,
 };
 
-export default UserSuggestions;
+export default MyClubs;
