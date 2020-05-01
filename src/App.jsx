@@ -20,6 +20,7 @@ import LoginorSignUp from './pages/LoginorSignUp';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import BcmPage from './pages/BcmPage';
+import NewClub from './pages/NewClub';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -67,7 +68,7 @@ class App extends React.Component {
   handleLogin(response) {
     this.setState({
       currentUserID: response.data,
-      loggedIn: true
+      loggedIn: false
     });
   }
 
@@ -93,6 +94,7 @@ class App extends React.Component {
               <Route exact path="/" render={(props) => this.state.loggedIn ? <Redirect to='/home' /> : <LoginorSignUp />} />
               <Route exact path="/login" render={(props) => this.state.loggedIn ? <Redirect to='/home' /> : <Login handleLogin={this.handleLogin} />} />
               <Route exact path="/signup" render={(props) => this.state.loggedIn ? <Redirect to='/home' /> : <SignUp />} />
+              <Route exact path="/newclub" render={(props) => this.state.loggedIn ? <NewClub handleLogout={this.handleLogout}/> : <Redirect to='/' />} />
             </IonRouterOutlet>
             <IonTabBar slot="bottom">
             <IonTabButton tab="Home" href="/home">

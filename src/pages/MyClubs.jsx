@@ -35,7 +35,7 @@ function pass() {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonButton slot='primary'>
+          <IonButton slot='primary' routerLink={"/newclub"}>
               <IonIcon slot="icon-only" icon={create}></IonIcon>
           </IonButton>
           <IonTitle>My Clubs</IonTitle>
