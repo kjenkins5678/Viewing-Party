@@ -5,7 +5,7 @@ module.exports = {
   "host": "localhost",
   "port": "3306",
   "user": "root",
-  "password": "admin",
+  "password": "testtest",
   "database": "viewing_party_db", 
   "dialect": "mysql",
   "pool": {
