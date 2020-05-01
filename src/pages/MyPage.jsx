@@ -15,8 +15,8 @@ class MyPage extends React.Component {
   }
 
   ionViewWillEnter() {
-    if (this.props.loggedIn) {
-      let currentComponent = this;
+    let currentComponent = this;
+    if (currentComponent.props.loggedIn) {
       console.log('ionViewWillEnter event fired');
       API.getMemberMovies(this.props.currentUserID)
       .then(function(response) {
