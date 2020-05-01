@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonItemDivider, IonInput, IonButton } from '@ionic/react';
+import API from '../utils/API';
 
 function SignUp() {
   const [firstName, setFirstName] = useState('');
@@ -14,6 +15,20 @@ function SignUp() {
     console.log(email);
     console.log(username);
     console.log(password);
+    API.addAMember({
+      first_name: firstName,
+      last_name: lastName,
+      email: email,
+      user_id: username,
+      password: password
+    })
+    .then(function(response) {
+      console.log(response);
+      window.location.replace('/login');
+    })
+    .catch(function(err) {
+      console.log(err);
+    })
   }
 
   return (
