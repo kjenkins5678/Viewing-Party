@@ -54,13 +54,13 @@ class App extends React.Component {
 
   resetTimer() {
     if (this.state.timer === false) {
-      time = setInterval(this.handleLogout, 60000);
+      time = setInterval(this.handleLogout, 900000);
       this.setState({
         timer: true
       })
     } else if (this.state.timer === true) {
       clearInterval(time)
-      time = setInterval(this.handleLogout, 30000)
+      time = setInterval(this.handleLogout, 900000)
     }
   }
 
