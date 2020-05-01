@@ -73,14 +73,6 @@ exports.findMovieMembers = (req, res) => {
 // **********************************************
 
 module.exports.create = (req, res) => {
-  // Validate request
-/*  if (!req.body.title) {
-    res.status(400).send({
-      message: "Content can not be empty!"
-    });
-    return;
-  }
-*/
 
   console.log ('Club/Member Movie. Create'); 
 
@@ -112,12 +104,24 @@ module.exports.create = (req, res) => {
 };
 
 // **********************************************
+// Update movie by ID 
 // **********************************************
 
-// Update a club by the id in the request
-exports.update = (req, res) => {
+module.exports.update = (req, res) => {
   
-};
+  console.log ('Club/Member Movie. Update. ID = ' + req.params.id); 
+  Club_Member_Movie.findByPk(req.params.id)
+    .then(data => {
+      //res.send(data);
+    Club_Member_Movie.update({movie_status: 'CLOSED'}, {
+      where: { id: req.params.id }
+    })
+    .then(upd => {
+      res.send({message: "Club member movie was updated successfully."
+      })
+    });
+  })
+}
 
 // **********************************************
 // Delete a club comment by ID
