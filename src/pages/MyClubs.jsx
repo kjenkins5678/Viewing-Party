@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonIcon, IonButton } from '@ionic/react';
 import EditClubCard from '../components/EditClubCard';
 import API from '../utils/API'
+import Logout from '../components/Logout/Logout';
 import { create } from 'ionicons/icons';
 // import PlaceholderContainer from '../components/PlaceholderContainer';
 import './MyClubs.css';
 
 
-const MyClubs: React.FC = () => {
+function MyClubs(props) {
 
 // Setting our component's initial state
 const [clubs, setClubs] = useState([])
@@ -26,6 +27,10 @@ function loadClubs() {
     .catch(err => console.log(err));
 };
 
+function pass() {
+  props.handleLogout();
+}
+
   return (
     <IonPage>
       <IonHeader>
@@ -34,6 +39,7 @@ function loadClubs() {
               <IonIcon slot="icon-only" icon={create}></IonIcon>
           </IonButton>
           <IonTitle>My Clubs</IonTitle>
+          <Logout pass={pass} />
         </IonToolbar>
       </IonHeader>
       <IonContent>

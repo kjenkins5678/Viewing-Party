@@ -3,8 +3,13 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonIcon, IonButto
 import ClubCard from '../components/ClubCard';
 import { create } from 'ionicons/icons';
 import API from '../utils/API.js';
+import Logout from '../components/Logout/Logout';
 
-function BcmPage() {
+function BcmPage(props) {
+
+  function pass() {
+    props.handleLogout();
+  }
 //const BcmPage: React.FC = () => {
 
   //useEffect(() => {    
@@ -264,6 +269,7 @@ function BcmPage() {
               <IonIcon slot="icon-only" icon={create}></IonIcon>
           </IonButton>
           <IonTitle>BCM Page</IonTitle>
+          <Logout pass={pass} />
         </IonToolbar>
       </IonHeader>
       <IonContent>

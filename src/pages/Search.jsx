@@ -1,6 +1,6 @@
 import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardContent } from '@ionic/react';
-
+import Logout from '../components/Logout/Logout';
 import '../components/Home/Home.css';
 
 
@@ -13,12 +13,17 @@ import NotFound from '../components/elements/NotFound/NotFound';
 
 
 
-const Search: React.FC = () => {
+function Search(props) {
+  function pass() {
+    props.handleLogout();
+  }
+
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
           <IonTitle>Search Movies or Shows</IonTitle>
+          <Logout pass={pass} />
         </IonToolbar>
       </IonHeader>
 

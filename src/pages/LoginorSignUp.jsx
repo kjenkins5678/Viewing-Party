@@ -2,7 +2,7 @@ import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonGrid, IonRow, IonCol } from '@ionic/react';
 import './LoginorSignUp.css';
 
-const LoginorSignUp: React.FC = () => {
+function LoginorSignUp() {
   return (
     <IonPage>
       <IonHeader>

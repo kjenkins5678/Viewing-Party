@@ -40,35 +40,56 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+let time; 
+
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {loggedIn: false, currentUserID: null}
+    this.state = {loggedIn: false, currentUserID: null, timer: false}
 
+    this.resetTimer = this.resetTimer.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
+  }
+
+  resetTimer() {
+    if (this.state.timer === false) {
+      time = setInterval(this.handleLogout, 60000);
+      this.setState({
+        timer: true
+      })
+    } else if (this.state.timer === true) {
+      clearInterval(time)
+      time = setInterval(this.handleLogout, 30000)
+    }
   }
 
   handleLogin(response) {
     this.setState({
-      currentUserID: response.data
-    });
-    console.log(this.state.currentUserID);
-    this.setState({
+      currentUserID: response.data,
       loggedIn: true
+    });
+  }
+
+  handleLogout() {
+    this.setState({
+      currentUserID: null, 
+      loggedIn: false,
+      timer: false
     });
   }
 
   render() {
     return(
-      <IonApp>
+      <IonApp onMouseMove={this.resetTimer} onKeyPress={this.resetTimer}>
         <IonReactRouter>
           <IonTabs>
             <IonRouterOutlet>
-              <Route exact path="/bcm" render={(props) => this.state.loggedIn ? <BcmPage /> : <Redirect to='/' />} />
-              <Route exact path="/home" render={(props) => this.state.loggedIn ? <Home /> : <Redirect to='/' />} />
-              <Route exact path="/myclubs" render={(props) => this.state.loggedIn ? <MyClubs /> : <Redirect to='/' />} />
-              <Route exact path="/search" render={(props) => this.state.loggedIn ? <Search /> : <Redirect to='/' />} />
-              <Route exact path="/mypage" render={(props) => this.state.loggedIn ? <MyPage /> : <Redirect to='/' />} />
+              <Route exact path="/bcm" render={(props) => this.state.loggedIn ? <BcmPage handleLogout={this.handleLogout}/> : <Redirect to='/' />} />
+              <Route exact path="/home" render={(props) => this.state.loggedIn ? <Home handleLogout={this.handleLogout}/> : <Redirect to='/' />} />
+              <Route exact path="/myclubs" render={(props) => this.state.loggedIn ? <MyClubs handleLogout={this.handleLogout}/> : <Redirect to='/' />} />
+              <Route exact path="/search" render={(props) => this.state.loggedIn ? <Search handleLogout={this.handleLogout}/> : <Redirect to='/' />} />
+              <Route exact path="/mypage" render={(props) => this.state.loggedIn ? <MyPage handleLogout={this.handleLogout}/> : <Redirect to='/' />} />
               <Route exact path="/" render={(props) => this.state.loggedIn ? <Redirect to='/home' /> : <LoginorSignUp />} />
               <Route exact path="/login" render={(props) => this.state.loggedIn ? <Redirect to='/home' /> : <Login handleLogin={this.handleLogin} />} />
               <Route exact path="/signup" render={(props) => this.state.loggedIn ? <Redirect to='/home' /> : <SignUp />} />
