@@ -46,7 +46,7 @@ let time;
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {loggedIn: false, currentUserID: null, timer: false}
+    this.state = {loggedIn: false, currentUserID: null, timer: false} //loggedIn
 
     this.resetTimer = this.resetTimer.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
@@ -68,14 +68,14 @@ class App extends React.Component {
   handleLogin(response) {
     this.setState({
       currentUserID: response.data,
-      loggedIn: false
+      loggedIn: false //loggedIn
     });
   }
 
   handleLogout() {
     this.setState({
       currentUserID: null, 
-      loggedIn: false,
+      loggedIn: false, //loggedIn 
       timer: false
     });
   }
