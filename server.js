@@ -7,6 +7,8 @@ var session = require("express-session");
 var passport = require("./config/passport");
 const cors = require ("cors"); 
 const app = express(); 
+const path = require('path');
+
 var corsOptions = {
   origin: "http://localhost:8081"
 }
@@ -26,6 +28,10 @@ app.use(passport.session());
 app.get("/", (req, res) => {
   console.log ("hitting the slash route"); 
   res.json({ message: "Welcome to Viewing Party" });
+});
+
+app.get('*', function(req, res) {
+  res.sendFile(path.join(__dirname, './build/index.html'))
 });
 
 require("./routes/routes.js")(app);
