@@ -10,4 +10,5 @@ if (process.env.JAWSDB_URL) {
     database: 'viewing_party_db'
 })};
 
+connection.connect();
 module.exports = connection; 
