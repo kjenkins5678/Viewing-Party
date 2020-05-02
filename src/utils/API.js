@@ -57,6 +57,10 @@ export default {
     console.log ("API. addAMemberMovie " + memberMovie.title);
     return axios.post("/api/movie", memberMovie);
   },
+  updateAMemberMovie: function (memberMovie) {
+    console.log("API. updateAMemberMovie");
+    return axios.put("/api/movie/", memberMovie);
+  },
   getMovieComments: function () {
     return axios.get("/api/movie_comment");
   }, 
