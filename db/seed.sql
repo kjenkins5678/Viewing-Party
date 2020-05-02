@@ -155,13 +155,37 @@ values
 insert into club_member_movie 
    (movie_status, title, synopsis, tmdb_id, poster_url, reviews_url, createdAt, updatedAt, fk_club_id, fk_member_id)
 values
-   ('OPEN', 'Caddyshack', 'Golf, gophers', 1, 'http://posterurl.com', 'http://reviewsurl.com', 
+   ('OPEN', 'Caddyshack', 'Golf, gophers', 2, 'http://posterurl.com', 'http://reviewsurl.com', 
    CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), 
    (select id from club where club_name = 'Brians Club'), 
    (select id from club_member where first_name = 'Brian'));
    
 -- club member movie comment 
 
+insert into club_member_movie_comment (comment, createdAt, updatedAt, fk_movie_id, fk_club_id, fk_member_id)
+select  
+   concat (case 
+   when fk_member_id = 1 then 'Brian says: '
+   else 'Raquel says: ' 
+   end, 'I loved it, it was better than Cats, Id see it again and again and again'),
+   CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), 
+   id, 
+   fk_club_id, 
+   fk_member_id
+from club_member_movie where tmdb_id = 1;
+   
+insert into club_member_movie_comment (comment, createdAt, updatedAt, fk_movie_id, fk_club_id, fk_member_id)
+select  
+   concat (case 
+   when fk_member_id = 1 then 'Brian says: '
+   else 'Raquel says: ' 
+   end, 'I loved it, it was better than Cats, Id see it again and again and again'),
+   CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), 
+   id, 
+   fk_club_id, 
+   fk_member_id
+from club_member_movie where tmdb_id = 2;
+   
 -- club comment 
 
 insert into club_comment (comment, createdAt, updatedAt, fk_club_id, fk_member_id)
@@ -214,6 +238,8 @@ values ('More to say about club 2', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(),
 
 /* 
 
+update club_member_movie set tmdb_id = 2 where title = 'Caddyshack'
+
 alter table club_member add password varchar (16) not null
 
 select * from club 
@@ -229,5 +255,25 @@ select * from club_member_movie
 select * from club_member_movie_comment
 
 select * from club_comment
+
+
+select
+   cmmc.comment, cmmc.createdAt as comment_dt, 
+   cmm.id as movie_id, cmm.movie_status, cmm.title, cmm.tmdb_id, cmm.synopsis, cmm.poster_url, cmm.reviews_url, 
+   cmm.fk_member_id, cm.first_name, cm.last_name, concat (cm.first_name, ' ', cm.last_name) as full_name, 
+   c.club_name
+from 
+   club_member_movie_comment cmmc, 
+   club c, 
+   club_member cm, 
+   club_member_movie cmm 
+where 
+cmmc.fk_movie_id = cmm.id 
+and cmmc.fk_member_id = cmm.fk_member_id 
+and cmmc.fk_club_id = cmm.fk_club_id 
+and c.id = cmm.fk_club_id 
+and cm.id = cmm.fk_member_id 
+and cmm.tmdb_id = 1 
+
 
 */
