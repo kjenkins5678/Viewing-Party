@@ -18,23 +18,23 @@ db.sequelize.sync();
 app.use(cors(corsOptions)); 
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
+app.use(express.static("build"));
 
 app.use(session({ secret: "keyboard cat", resave: false, saveUninitialized: false }));
 app.use(passport.initialize());
 app.use(passport.session());
 
 // simple route
-app.get("/", (req, res) => {
-  console.log ("hitting the slash route"); 
-  res.json({ message: "Welcome to Viewing Party" });
-});
+// app.get("/", (req, res) => {
+//   console.log ("hitting the slash route"); 
+//   res.json({ message: "Welcome to Viewing Party" });
+// });
+
+require("./routes/routes.js")(app);
 
 app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, './build/index.html'))
 });
-
-require("./routes/routes.js")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
