@@ -10,12 +10,19 @@ function HomeCommentList(props) {
         }
     }
     let comments = props.clubComments;
+    for (let i = 0; i < comments.length; i++) {
+        for (let j = 0; j < props.members.length; j++) {
+            if (comments[i].fk_member_id == props.members[j].id) {
+                comments[i].poster_name = `${props.members[j].first_name} ${props.members[j].last_name}`;
+            }
+        }
+    }
     let commentList = comments.map((comment) => {
         return(
             <IonItem id={comment.id}>
                 <IonLabel>
                 <p>{comment.comment}</p>
-                <h6>By <a href="#" className={comment.fk_member_id}>User</a></h6>
+                <h6>By <a href="#" className={comment.fk_member_id}>{comment.poster_name}</a></h6>
                 </IonLabel>
             </IonItem>
         )
