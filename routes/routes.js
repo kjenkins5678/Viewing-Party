@@ -68,6 +68,8 @@ module.exports = app => {
 
   app.delete("/api/movie/:id", club_member_movie.delete);
 
+  app.put("/api/movie/:id", club_member_movie.update);
+
   // ********************************************
   // club member movie comments
   // ********************************************

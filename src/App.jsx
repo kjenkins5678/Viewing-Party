@@ -20,6 +20,7 @@ import LoginorSignUp from './pages/LoginorSignUp';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import BcmPage from './pages/BcmPage';
+import NewClub from './pages/NewClub';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -45,7 +46,7 @@ let time;
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {loggedIn: true, currentUserID: null, timer: false}
+    this.state = {loggedIn: false, currentUserID: null, timer: false} //loggedIn
 
     this.resetTimer = this.resetTimer.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
@@ -54,7 +55,7 @@ class App extends React.Component {
 
   resetTimer() {
     if (this.state.timer === false) {
-      time = setInterval(this.handleLogout, 60000);
+      time = setInterval(this.handleLogout, 900000);
       this.setState({
         timer: true
       })
@@ -67,14 +68,14 @@ class App extends React.Component {
   handleLogin(response) {
     this.setState({
       currentUserID: response.data,
-      loggedIn: true
+      loggedIn: true //loggedIn
     });
   }
 
   handleLogout() {
     this.setState({
       currentUserID: null, 
-      loggedIn: true,
+      loggedIn: false, //loggedIn 
       timer: false
     });
   }
@@ -86,13 +87,14 @@ class App extends React.Component {
           <IonTabs>
             <IonRouterOutlet>
               <Route exact path="/bcm" render={(props) => this.state.loggedIn ? <BcmPage handleLogout={this.handleLogout}/> : <Redirect to='/' />} />
-              <Route exact path="/home" render={(props) => this.state.loggedIn ? <Home handleLogout={this.handleLogout}/> : <Redirect to='/' />} />
+              <Route exact path="/home" render={(props) => this.state.loggedIn ? <Home handleLogout={this.handleLogout} currentUserID={this.state.currentUserID} /> : <Redirect to='/' />} />
               <Route exact path="/myclubs" render={(props) => this.state.loggedIn ? <MyClubs handleLogout={this.handleLogout}/> : <Redirect to='/' />} />
               <Route exact path="/search" render={(props) => this.state.loggedIn ? <Search handleLogout={this.handleLogout}/> : <Redirect to='/' />} />
-              <Route exact path="/mypage" render={(props) => this.state.loggedIn ? <MyPage handleLogout={this.handleLogout}/> : <Redirect to='/' />} />
-              <Route exact path="/" render={(props) => this.state.loggedIn ? <Redirect to='/home' /> : <LoginorSignUp />} />
+              <Route exact path="/mypage" render={(props) => this.state.loggedIn ? <MyPage handleLogout={this.handleLogout} currentUserID={this.state.currentUserID} loggedIn={this.state.loggedIn} /> : <Redirect to='/' />} />
+              <Route exact path="/" render={(props) => this.state.loggedIn ? <Redirect to='/home' /> : <LoginorSignUp loggedIn={this.state.loggedIn} currentUserID={this.state.currentUserID} />} />
               <Route exact path="/login" render={(props) => this.state.loggedIn ? <Redirect to='/home' /> : <Login handleLogin={this.handleLogin} />} />
               <Route exact path="/signup" render={(props) => this.state.loggedIn ? <Redirect to='/home' /> : <SignUp />} />
+              <Route exact path="/newclub" render={(props) => this.state.loggedIn ? <NewClub handleLogout={this.handleLogout}/> : <Redirect to='/' />} />
             </IonRouterOutlet>
             <IonTabBar slot="bottom">
             <IonTabButton tab="Home" href="/home">
