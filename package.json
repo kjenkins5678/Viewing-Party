@@ -2,7 +2,6 @@
   "name": "Viewing-Party",
   "version": "0.0.1",
   "private": true,
-  "homepage": "./",
   "dependencies": {
     "@capacitor/core": "2.0.1",
     "@ionic/react": "^5.0.7",
@@ -23,6 +22,7 @@
     "bootstrap": "^4.4.1",
     "cors": "^2.8.5",
     "css-loader": "^3.5.3",
+    "express": "^4.17.1",
     "express-session": "^1.17.1",
     "ionicons": "^5.0.0",
     "jquery": "^3.5.0",
