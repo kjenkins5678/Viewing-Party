@@ -8,6 +8,6 @@ if (process.env.JAWSDB_URL) {
     user: 'root',
     password: 'Mysql000!', 
     database: 'viewing_party_db'
-});
+})};
 
 module.exports = connection; 
