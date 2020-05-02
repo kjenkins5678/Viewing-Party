@@ -18,8 +18,7 @@ class Movie extends Component {
 
   componentDidMount() {
     // ES6 destructuring the props
-    const { movieId } = this.props.match.params
-  
+    const { movieId } = this.props.match.params;
 
     if (localStorage.getItem(`${movieId}`)) {
       let state = JSON.parse(localStorage.getItem(`${movieId}`))
@@ -27,8 +26,7 @@ class Movie extends Component {
     } else {
       this.setState({ loading: true })
       // First fetch the movie ...
-      //let endpoint = `${API_URL}movie/${movieId}/?api_key=${API_KEY}&language=en-US`;
-      let endpoint = `${API_URL}movie/${movieId}/?api_key=${API_KEY}&language=en-US`;
+      let endpoint = `${API_URL}movie/${movieId}?api_key=${API_KEY}&language=en-US`;
       this.fetchItems(endpoint);
     }
   }
@@ -47,8 +45,8 @@ class Movie extends Component {
       } else {
         this.setState({ movie: result }, () => {
           // ... then fetch actors in the setState callback function
-          //https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>
           let endpoint = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
+
           fetch(endpoint)
           .then(result => result.json())
           .then(result => {
@@ -65,6 +63,7 @@ class Movie extends Component {
           })
         })
       }
+      console.log(endpoint);
     })
     .catch(error => console.error('Error:', error))
   }

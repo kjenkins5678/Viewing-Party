@@ -40,7 +40,8 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-
+/* bootstrap */
+import 'bootstrap/dist/css/bootstrap.min.css';
 let time; 
 
 class App extends React.Component {

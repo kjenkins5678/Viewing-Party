@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component  } from 'react';
 import { API_URL, API_KEY, IMAGE_BASE_URL, POSTER_SIZE, BACKDROP_SIZE } from '../../config';
 import HeroImage from '../elements/HeroImage/HeroImage';
 import SearchBar from '../elements/SearchBar/SearchBar';
@@ -7,6 +7,7 @@ import MovieThumb from '../elements/MovieThumb/MovieThumb';
 import LoadMoreBtn from '../elements/LoadMoreBtn/LoadMoreBtn';
 import Spinner from '../elements/Spinner/Spinner';
 import './Home.css';
+import { Button, Card, ButtonGroup, ButtonToolbar } from 'react-bootstrap';
 
 class Home extends Component {
   state = {
@@ -18,6 +19,7 @@ class Home extends Component {
     searchTerm: ''
   }
 
+  
   componentDidMount() {
     if (sessionStorage.getItem('HomeState')) {
       let state = JSON.parse(sessionStorage.getItem('HomeState'))
@@ -28,6 +30,7 @@ class Home extends Component {
       this.fetchItems(endpoint);
     }
   }
+
 
   searchItems = (searchTerm) => {
     let endpoint = '';
@@ -45,6 +48,8 @@ class Home extends Component {
     this.fetchItems(endpoint);
   }
 
+  
+
   loadMoreItems = () => {
     // ES6 Destructuring the state
     const { searchTerm, currentPage } = this.state;
@@ -60,6 +65,7 @@ class Home extends Component {
     this.fetchItems(endpoint);
   }
 
+ 
   fetchItems = (endpoint) => {
     // ES6 Destructuring the state
     const { movies, heroImage, searchTerm } = this.state;
@@ -87,6 +93,7 @@ class Home extends Component {
     // ES6 Destructuring the state
     const { movies, heroImage, loading, currentPage, totalPages, searchTerm } = this.state;
 
+  
     return (
       <div className="rmdb-home">
         {heroImage ?
@@ -98,27 +105,49 @@ class Home extends Component {
             />
             <SearchBar callback={this.searchItems}/>
           </div> : null }
+          
           <div className="rmdb-home-grid">
+         
             <FourColGrid
               header={searchTerm ? 'Search Result' : 'Popular Movies'}
               loading={loading}
             >
+                  
+                 
               {movies.map( (element, i) => (
+                  <Card>
                 <MovieThumb
                   key={i}
                   clickable={true}
-                  image={element.poster_path ? `${IMAGE_BASE_URL}${POSTER_SIZE}${element.poster_path}` : '../../../images/no_image.jpg'}
+                  image={`${IMAGE_BASE_URL}${POSTER_SIZE}${element.poster_path}`}
                   movieId={element.id}
+                  genreId={element.genre_ids}
                   movieName={element.original_title}
+                  text={element.overview}
+
+                  
                 />
-              ))}
+                        <Card.Body>
+            <ButtonToolbar><ButtonGroup>
+              <Button variant="primary" size="sm">To Watch</Button>
+              <Button variant="secondary" size="sm">Have Seen</Button>
+              </ButtonGroup></ButtonToolbar>
+            </Card.Body>
+          </Card>
+              )              
+              )}
+
             </FourColGrid>
+
             {loading ? <Spinner /> : null}
             {(currentPage <= totalPages && !loading) ?
               <LoadMoreBtn text="Load More" onClick={this.loadMoreItems} />
               : null
             }
+            
           </div>
+
+
       </div>
     )
   }

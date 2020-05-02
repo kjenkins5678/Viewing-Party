@@ -7,7 +7,7 @@
   box-sizing: border-box;
 }
 
-.clickable {
+.clickable:link {
   cursor: pointer;
 }
 

@@ -1,13 +1,12 @@
 import React from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardContent } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import Logout from '../components/Logout/Logout';
 import '../components/Home/Home.css';
-
-
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Home from '../components/Home/Home';
 import Header from '../components/elements/Header/Header';
-import Movie from '../components/Movies/Movie';
+import { Route, Switch } from 'react-router-dom';
+import Home from '../components/Home/Home';
+
+import Movie from '../components/Movie/Movie';
 import NotFound from '../components/elements/NotFound/NotFound';
 
 
@@ -28,6 +27,7 @@ function Search(props) {
       </IonHeader>
 
       <IonContent class="outer-content">
+      <Header />
       <Switch>
       <Route path="/" component={Home}  />
       <Route path="/:movieId" component={Movie}  />
