@@ -10,7 +10,7 @@ const Navigation = ({ movie }) => (
         <p>Home</p>
       </Link>
       <p>/</p>
-      <p>{movie}</p>
+      <p>{ movie }</p>
     </div>
   </div>
 )
