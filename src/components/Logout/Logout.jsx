@@ -6,7 +6,9 @@ function Logout(props) {
         props.pass();
     }
     return(
-        <IonButton color="secondary" onClick={logout}>Logout</IonButton>
+        <IonButton slot='primary' color="secondary" onClick={logout}>
+            Logout
+        </IonButton>
     )
 };
 
