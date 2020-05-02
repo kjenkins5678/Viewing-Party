@@ -1,11 +1,12 @@
 -- cleanup, children first 
+USE viewing_party_db; 
 
-delete from club_comment; 
-delete from club_member_movie_comment;
-delete from club_member_movie;
-delete from club_member_map;
-delete from club_member; 
-delete from club; 
+-- delete from club_comment; 
+-- delete from club_member_movie_comment;
+-- delete from club_member_movie;
+-- delete from club_member_map;
+-- delete from club_member; 
+-- delete from club; 
 
 -- club 
 
